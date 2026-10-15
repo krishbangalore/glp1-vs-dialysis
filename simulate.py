@@ -10,7 +10,10 @@ Monte Carlo (probabilistic sensitivity analysis): every uncertain input is drawn
 10,000 times from a distribution centred on its published value, and the model is
 re-run for each draw. That turns single-number answers into ranges.
 
-EVERY INPUT IS FROM A PUBLISHED SOURCE (see INPUTS below). No made-up numbers.
+Inputs come in two kinds, kept apart below:
+  INPUTS       - numbers taken from a published source (each line cites it)
+  ASSUMPTIONS  - modelling choices and derived values that are NOT published
+                 figures (discount rate, uncertainty widths, constant hazards...)
 Patient counts for the scale-up come from the real CMS Part D files in data/raw/.
 
 What the model leaves out (stated so nobody over-reads it):
@@ -37,22 +40,42 @@ SEED, N_DRAWS, COHORT = 42, 10_000, 1_000
 # ------------------------------------------------------------------------------------
 INPUTS = {
     # FLOW trial: Perkovic et al., N Engl J Med 2024;391:109-121 (placebo arm, n=1,766)
-    "placebo_patient_years": 410 / 0.075,   # 410 primary events at 7.5 per 100 patient-years
-    "placebo_dialysis_starts": 100,         # kidney-replacement therapy initiated, placebo arm
+    "placebo_primary_events": 410,          # first primary-outcome events, placebo arm
+    "placebo_primary_rate": 0.075,          # 7.5 primary events per 100 patient-years, placebo arm
+    "placebo_dialysis_starts": 100,         # KRT initiation (chronic dialysis OR transplant), placebo arm
     "placebo_deaths": 279,                  # death from any cause, placebo arm
     "hr_dialysis": (0.84, 0.63, 1.12),      # semaglutide vs placebo, KRT initiation (HR, 95% CI)
     "hr_death": (0.80, 0.67, 0.95),         # semaglutide vs placebo, all-cause death (HR, 95% CI)
-    # USRDS 2024 Annual Data Report, ESRD ch. 6: 5-year survival after starting
-    # hemodialysis = 40.7% (2018 cohort)  -> annual death rate = -ln(0.407)/5
+    # USRDS 2024 Annual Data Report, ESRD ch. 6 (Fig. 6.8): adjusted 5-year survival
+    # after starting hemodialysis = 40.7% (2018 cohort; follow-up spans COVID-19 years)
     "dialysis_5yr_survival": 0.407,
-    # USRDS 2024 ADR, ESRD ch. 9: Medicare FFS spending per person per year,
-    # in-center hemodialysis, 2022 dollars
+    # USRDS 2024 ADR, ESRD ch. 9 (Fig. 9.11a): Medicare FFS spending per person per
+    # year, in-center hemodialysis, 2022 (inflation-adjusted to 2022 dollars)
     "dialysis_cost_per_year": 99_369,
-    # CMS negotiated Medicare price for Ozempic (effective 2027): $274 per month
+    # CMS negotiated Medicare price for semaglutide (Ozempic/Rybelsus/Wegovy), $274 per
+    # 30-day supply, effective Jan 1 2027; announced Nov 2025
     "drug_cost_per_year_negotiated": 274 * 12,
-    # Ozempic list price at the time of the negotiation announcement: $959 per month
+    # 2024 list price for a 30-day supply as reported by CMS with the negotiation results
     "drug_cost_per_year_list": 959 * 12,
-    "discount_rate": 0.03,                  # standard in US cost-effectiveness analysis (costs AND life-years)
+}
+
+# ------------------------------------------------------------------------------------
+# ASSUMPTIONS - modelling choices, not published figures
+# ------------------------------------------------------------------------------------
+ASSUMPTIONS = {
+    # Placebo follow-up time, derived as events / rate. This is time at risk for the
+    # primary outcome (follow-up stops at a first event), so it is shorter than total
+    # follow-up and makes the derived dialysis and death rates somewhat too high.
+    "placebo_patient_years": INPUTS["placebo_primary_events"] / INPUTS["placebo_primary_rate"],
+    # Conventional US cost-effectiveness discount rate, applied to costs AND life-years.
+    "discount_rate": 0.03,
+    # Spread of the 5-year dialysis survival draw: Beta(407, 593), i.e. the precision
+    # of a ~1,000-patient cohort. USRDS does not publish this; it is a chosen width.
+    "dialysis_survival_beta": (407, 593),
+    # Structural assumptions (no parameter): constant annual hazards; FLOW's hazard
+    # ratios persist beyond the 3.4-year trial; transplants (part of FLOW's KRT count)
+    # are costed as dialysis; 2022 dialysis costs and the 2027 drug price are used as-is,
+    # with no adjustment between years.
 }
 HORIZONS = {"10-year": 10, "Trial length (3.4 years)": 3.4}
 
@@ -64,14 +87,14 @@ def rate_to_prob(rate, years=1.0):
 def draw_params(rng, n):
     """Draw n sets of inputs. Event rates ~ Gamma(events, patient-years); hazard ratios
     ~ log-normal using the published 95% CI; dialysis survival ~ Beta around 40.7%."""
-    py = INPUTS["placebo_patient_years"]
+    py = ASSUMPTIONS["placebo_patient_years"]
 
     def hr(hr_tuple):
         est, lo, hi = hr_tuple
         se = (np.log(hi) - np.log(lo)) / (2 * 1.96)
         return np.exp(rng.normal(np.log(est), se, n))
 
-    surv = rng.beta(407, 593, n)            # centred on 40.7%, ~1,000-patient precision
+    surv = rng.beta(*ASSUMPTIONS["dialysis_survival_beta"], n)   # centred on 40.7%
     return {
         "dialysis_rate": rng.gamma(INPUTS["placebo_dialysis_starts"], 1 / py, n),
         "death_rate_ckd": rng.gamma(INPUTS["placebo_deaths"], 1 / py, n),
@@ -93,7 +116,7 @@ def run_cohort(p, treat, horizon, drug_cost):
     t = 0.0
     while t < horizon - 1e-9:
         step = min(1.0, horizon - t)
-        disc = 1 / (1 + INPUTS["discount_rate"]) ** t
+        disc = 1 / (1 + ASSUMPTIONS["discount_rate"]) ** t
         # competing risks within the cycle (CKD -> dialysis or death)
         total_rate = r_dial + r_death
         leave = ckd * rate_to_prob(total_rate, step)
@@ -212,8 +235,11 @@ def main():
     pd.DataFrame(rows).to_csv(os.path.join(OUT, "sim_results.csv"), index=False)
     text = "\n".join(lines)
     with open(os.path.join(OUT, "sim_summary.txt"), "w") as f:
-        f.write("INPUTS (all published):\n")
+        f.write("INPUTS (published; sources in simulate.py):\n")
         for k, v in INPUTS.items():
+            f.write(f"  {k}: {v}\n")
+        f.write("ASSUMPTIONS (modelling choices, not published figures):\n")
+        for k, v in ASSUMPTIONS.items():
             f.write(f"  {k}: {v}\n")
         f.write(text + "\n")
     plot(chart_data)

@@ -1,5 +1,6 @@
-INPUTS (all published):
-  placebo_patient_years: 5466.666666666667
+INPUTS (published; sources in simulate.py):
+  placebo_primary_events: 410
+  placebo_primary_rate: 0.075
   placebo_dialysis_starts: 100
   placebo_deaths: 279
   hr_dialysis: (0.84, 0.63, 1.12)
@@ -8,7 +9,10 @@ INPUTS (all published):
   dialysis_cost_per_year: 99369
   drug_cost_per_year_negotiated: 3288
   drug_cost_per_year_list: 11508
+ASSUMPTIONS (modelling choices, not published figures):
+  placebo_patient_years: 5466.666666666667
   discount_rate: 0.03
+  dialysis_survival_beta: (407, 593)
 
 === Negotiated Medicare price ($274/mo) | 10-year | per 1,000 patients ===
 Dialysis starts avoided:   14.3  (90% range -15.7 to 39.2)
