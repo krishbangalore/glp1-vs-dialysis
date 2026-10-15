@@ -1,0 +1,33 @@
+specification,ticker,window,CAR_pct,t_stat
+"Yahoo prices, market model (SPY) [original]",DVA,day 0,-17.11,-6.45
+"Yahoo prices, market model (SPY) [original]",DVA,days 0 to +1,-19.63,-5.23
+"Yahoo prices, market model (SPY) [original]",FMS,day 0,-18.04,-9.31
+"Yahoo prices, market model (SPY) [original]",FMS,days 0 to +1,-19.8,-7.22
+"Yahoo prices, market model (SPY) [original]",OM,day 0,-21.67,-5.54
+"Yahoo prices, market model (SPY) [original]",OM,days 0 to +1,-32.08,-5.8
+"Yahoo prices, market model (SPY) [original]",NVO,day 0,5.9,3.11
+"Yahoo prices, market model (SPY) [original]",NVO,days 0 to +1,7.14,2.66
+"Tiingo prices, market model (SPY)",DVA,day 0,-17.11,-6.45
+"Tiingo prices, market model (SPY)",DVA,days 0 to +1,-19.63,-5.23
+"Tiingo prices, market model (SPY)",FMS,day 0,-18.04,-9.31
+"Tiingo prices, market model (SPY)",FMS,days 0 to +1,-19.8,-7.22
+"Tiingo prices, market model (SPY)",OM,day 0,-21.67,-5.54
+"Tiingo prices, market model (SPY)",OM,days 0 to +1,-32.08,-5.8
+"Tiingo prices, market model (SPY)",NVO,day 0,5.9,3.11
+"Tiingo prices, market model (SPY)",NVO,days 0 to +1,7.14,2.66
+"Yahoo prices, market model (Fama-French market)",DVA,day 0,-17.09,-6.45
+"Yahoo prices, market model (Fama-French market)",DVA,days 0 to +1,-19.52,-5.21
+"Yahoo prices, market model (Fama-French market)",FMS,day 0,-18.01,-9.3
+"Yahoo prices, market model (Fama-French market)",FMS,days 0 to +1,-19.68,-7.18
+"Yahoo prices, market model (Fama-French market)",OM,day 0,-21.59,-5.53
+"Yahoo prices, market model (Fama-French market)",OM,days 0 to +1,-31.77,-5.76
+"Yahoo prices, market model (Fama-French market)",NVO,day 0,5.92,3.12
+"Yahoo prices, market model (Fama-French market)",NVO,days 0 to +1,7.19,2.68
+"Yahoo prices, Fama-French 3-factor",DVA,day 0,-16.86,-6.4
+"Yahoo prices, Fama-French 3-factor",DVA,days 0 to +1,-18.62,-5.0
+"Yahoo prices, Fama-French 3-factor",FMS,day 0,-18.01,-9.26
+"Yahoo prices, Fama-French 3-factor",FMS,days 0 to +1,-19.59,-7.12
+"Yahoo prices, Fama-French 3-factor",OM,day 0,-20.29,-5.35
+"Yahoo prices, Fama-French 3-factor",OM,days 0 to +1,-28.59,-5.33
+"Yahoo prices, Fama-French 3-factor",NVO,day 0,5.72,3.01
+"Yahoo prices, Fama-French 3-factor",NVO,days 0 to +1,6.56,2.45

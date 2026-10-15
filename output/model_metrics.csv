@@ -1,0 +1,4 @@
+model,ROC_AUC,PR_AUC,PR_AUC_random,top10pct_precision,top10pct_lift,top10pct_capture
+Benchmark: diabetes-drug share only,0.702,0.094,0.055,0.107,1.947,0.195
+Logistic regression,0.794,0.2,0.055,0.212,3.871,0.387
+Random forest,0.791,0.222,0.055,0.212,3.871,0.387

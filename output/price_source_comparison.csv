@@ -1,0 +1,6 @@
+ticker,days_compared,return_correlation,median_abs_diff_pct_points,max_abs_diff_pct_points,event_day_return_yahoo_pct,event_day_return_tiingo_pct
+DVA,397,1.0,0.0,0.0,-16.86,-16.86
+FMS,397,1.0,0.0,0.0,-17.57,-17.57
+OM,397,1.0,0.0,0.0,-21.21,-21.21
+NVO,397,1.0,0.0,0.024,6.27,6.27
+SPY,397,1.0,0.0,0.005,0.41,0.41

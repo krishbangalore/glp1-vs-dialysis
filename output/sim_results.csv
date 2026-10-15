@@ -1,0 +1,33 @@
+drug_price,horizon,metric,p5,median,p95,mean
+Negotiated Medicare price ($274/mo),10-year,dialysis_starts_avoided,-15.69,14.32,39.19,13.42
+Negotiated Medicare price ($274/mo),10-year,dialysis_years_avoided,-49.99,56.11,143.6,52.81
+Negotiated Medicare price ($274/mo),10-year,life_years_gained,128.8,320.7,497.24,317.22
+Negotiated Medicare price ($274/mo),10-year,drug_cost,21547666.56,22413780.63,23183426.17,22394225.68
+Negotiated Medicare price ($274/mo),10-year,dialysis_cost_saved,-4188584.82,4813125.73,12219595.98,4526694.92
+Negotiated Medicare price ($274/mo),10-year,net_cost,10384990.59,17620453.85,26241820.17,17867530.76
+Negotiated Medicare price ($274/mo),10-year,cost_per_life_year,27342.4,55237.4,144085.65,72858.5
+Negotiated Medicare price ($274/mo),10-year,break_even_drug_price_per_year,-629.62,707.1,1780.65,658.87
+Negotiated Medicare price ($274/mo),Trial length (3.4 years),dialysis_starts_avoided,-4.7,7.74,18.03,7.35
+Negotiated Medicare price ($274/mo),Trial length (3.4 years),dialysis_years_avoided,-7.02,12.57,28.72,11.95
+Negotiated Medicare price ($274/mo),Trial length (3.4 years),life_years_gained,18.97,49.73,78.08,49.43
+Negotiated Medicare price ($274/mo),Trial length (3.4 years),drug_cost,9687211.84,9829806.03,9956346.85,9827344.54
+Negotiated Medicare price ($274/mo),Trial length (3.4 years),dialysis_cost_saved,-662632.1,1188595.42,2714978.42,1130011.81
+Negotiated Medicare price ($274/mo),Trial length (3.4 years),net_cost,7148599.16,8643804.41,10424291.83,8697332.73
+Negotiated Medicare price ($274/mo),Trial length (3.4 years),cost_per_life_year,105259.44,173084.36,430267.26,214921.01
+Negotiated Medicare price ($274/mo),Trial length (3.4 years),break_even_drug_price_per_year,-223.57,397.84,903.84,376.95
+List price ($959/mo),10-year,dialysis_starts_avoided,-14.51,14.36,38.79,13.56
+List price ($959/mo),10-year,dialysis_years_avoided,-45.62,56.25,142.11,53.34
+List price ($959/mo),10-year,life_years_gained,124.84,319.26,494.89,315.48
+List price ($959/mo),10-year,drug_cost,75365348.33,78403446.02,81108661.92,78347101.03
+List price ($959/mo),10-year,dialysis_cost_saved,-3816404.36,4810242.2,12107452.52,4571524.48
+List price ($959/mo),10-year,net_cost,66558249.6,73604727.9,81477431.88,73775576.55
+List price ($959/mo),10-year,cost_per_life_year,147869.68,230489.93,557452.57,210600.51
+List price ($959/mo),10-year,break_even_drug_price_per_year,-570.43,706.21,1765.61,666.11
+List price ($959/mo),Trial length (3.4 years),dialysis_starts_avoided,-4.59,7.82,18.1,7.4
+List price ($959/mo),Trial length (3.4 years),dialysis_years_avoided,-6.79,12.68,28.88,12.03
+List price ($959/mo),Trial length (3.4 years),life_years_gained,18.8,50.0,77.2,49.27
+List price ($959/mo),Trial length (3.4 years),drug_cost,33911220.09,34414072.58,34844979.02,34400882.01
+List price ($959/mo),Trial length (3.4 years),dialysis_cost_saved,-640580.53,1199451.32,2730474.68,1137308.7
+List price ($959/mo),Trial length (3.4 years),net_cost,31754936.63,33226389.3,34902009.73,33263573.31
+List price ($959/mo),Trial length (3.4 years),cost_per_life_year,428182.62,663135.82,1668642.52,1149765.74
+List price ($959/mo),Trial length (3.4 years),break_even_drug_price_per_year,-215.23,401.19,908.85,379.35

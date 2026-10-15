@@ -1,0 +1,66 @@
+INPUTS (all published):
+  placebo_patient_years: 5466.666666666667
+  placebo_dialysis_starts: 100
+  placebo_deaths: 279
+  hr_dialysis: (0.84, 0.63, 1.12)
+  hr_death: (0.8, 0.67, 0.95)
+  dialysis_5yr_survival: 0.407
+  dialysis_cost_per_year: 99369
+  drug_cost_per_year_negotiated: 3288
+  drug_cost_per_year_list: 11508
+  discount_rate: 0.03
+
+=== Negotiated Medicare price ($274/mo) | 10-year | per 1,000 patients ===
+Dialysis starts avoided:   14.3  (90% range -15.7 to 39.2)
+Dialysis-years avoided:    56.1  (90% range -50.0 to 143.6)
+Life-years gained:         320.7  (90% range 128.8 to 497.2)
+Drug cost:                 $22.4M
+Dialysis cost saved:       $4.81M  (90% range $-4.19M to $12.22M)
+Net cost to Medicare:      $17.6M
+Net cost per life-year:    $55,237  (90% range $27,342 to $144,086)
+Break-even drug price:     $707/yr ($59/mo)
+P(drug avoids any dialysis starts) = 80%;  P(pays for itself on dialysis alone) = 0%;  P(under $100k per life-year) = 87%
+
+=== Negotiated Medicare price ($274/mo) | Trial length (3.4 years) | per 1,000 patients ===
+Dialysis starts avoided:   7.7  (90% range -4.7 to 18.0)
+Dialysis-years avoided:    12.6  (90% range -7.0 to 28.7)
+Life-years gained:         49.7  (90% range 19.0 to 78.1)
+Drug cost:                 $9.8M
+Dialysis cost saved:       $1.19M  (90% range $-0.66M to $2.71M)
+Net cost to Medicare:      $8.6M
+Net cost per life-year:    $173,084  (90% range $105,259 to $430,267)
+Break-even drug price:     $398/yr ($33/mo)
+P(drug avoids any dialysis starts) = 85%;  P(pays for itself on dialysis alone) = 0%;  P(under $100k per life-year) = 4%
+
+=== List price ($959/mo) | 10-year | per 1,000 patients ===
+Dialysis starts avoided:   14.4  (90% range -14.5 to 38.8)
+Dialysis-years avoided:    56.2  (90% range -45.6 to 142.1)
+Life-years gained:         319.3  (90% range 124.8 to 494.9)
+Drug cost:                 $78.4M
+Dialysis cost saved:       $4.81M  (90% range $-3.82M to $12.11M)
+Net cost to Medicare:      $73.6M
+Net cost per life-year:    $230,490  (90% range $147,870 to $557,453)
+Break-even drug price:     $706/yr ($59/mo)
+P(drug avoids any dialysis starts) = 81%;  P(pays for itself on dialysis alone) = 0%;  P(under $100k per life-year) = 0%
+
+=== List price ($959/mo) | Trial length (3.4 years) | per 1,000 patients ===
+Dialysis starts avoided:   7.8  (90% range -4.6 to 18.1)
+Dialysis-years avoided:    12.7  (90% range -6.8 to 28.9)
+Life-years gained:         50.0  (90% range 18.8 to 77.2)
+Drug cost:                 $34.4M
+Dialysis cost saved:       $1.20M  (90% range $-0.64M to $2.73M)
+Net cost to Medicare:      $33.2M
+Net cost per life-year:    $663,136  (90% range $428,183 to $1,668,643)
+Break-even drug price:     $401/yr ($33/mo)
+P(drug avoids any dialysis starts) = 86%;  P(pays for itself on dialysis alone) = 0%;  P(under $100k per life-year) = 1%
+
+=== Scale-up: the 2024 adoption gap (real CMS Part D data) ===
+5,630 nephrologists prescribed diabetes drugs but no GLP-1s in 2024.
+Their diabetic Medicare patients: 90,937 to 112,267 (88,567 directly counted; the rest hidden by CMS small-count rules).
+If those patients were treated (negotiated price, 10 years), the median estimate is:
+  dialysis starts avoided: 1,302 to 1,607
+  life-years gained:       29,164 to 36,004
+  dialysis spending saved: $438M to $540M
+Caveat: some of these patients may already get a GLP-1 from another doctor, and not all
+match the FLOW trial population (type 2 diabetes + CKD), so treat this as an upper-end
+illustration of the gap, not a forecast.

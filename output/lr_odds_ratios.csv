@@ -1,0 +1,25 @@
+feature,label,odds_ratio_per_SD,CI_low,CI_high,significant
+n_distinct_drugs,Number of distinct drugs prescribed,1.684,1.329,2.206,True
+uses_metformin,Prescribes metformin,1.418,1.254,1.589,True
+uses_sglt2,Already prescribes SGLT2s,1.392,1.2,1.596,True
+dual_share,Share of low-income (dual-eligible) patients,1.371,1.183,1.624,True
+region_South,Region: South,1.321,1.072,1.659,True
+uses_sulfonylurea,Prescribes sulfonylureas,1.2,1.084,1.333,True
+region_West,Region: West,1.187,0.975,1.487,False
+uses_dpp4,Prescribes DPP-4 inhibitors,1.167,1.05,1.302,True
+is_DO,DO (vs MD) degree,1.159,1.01,1.302,True
+prior_glp1_peer_rate,% of other nephrologists in state on GLP-1s,1.152,0.983,1.304,False
+diabetes_claim_share,Share of claims that are diabetes drugs,1.15,1.005,1.354,True
+uses_finerenone,Already prescribes finerenone (Kerendia),1.109,1.017,1.226,True
+rural,Practices in a rural area,1.091,0.932,1.226,False
+brand_claim_share,Share of claims that are brand-name drugs,1.059,0.863,1.229,False
+female_share,Share of female patients,1.036,0.91,1.196,False
+risk_score,Patients' average risk score (sickness),1.013,0.806,1.235,False
+avg_patient_age,Patients' average age,0.999,0.892,1.175,False
+region_Northeast,Region: Northeast,0.976,0.782,1.183,False
+log_patients,Number of Medicare patients (log),0.974,0.792,1.242,False
+mapd_share,Share of claims via Medicare Advantage,0.959,0.827,1.106,False
+uses_insulin,Prescribes insulin,0.932,0.839,1.026,False
+claims_per_patient,Prescriptions per patient,0.922,0.781,1.103,False
+black_share,Share of Black patients,0.887,0.764,1.026,False
+dialysis_claim_share,Share of claims that are dialysis drugs,0.589,0.472,0.745,True

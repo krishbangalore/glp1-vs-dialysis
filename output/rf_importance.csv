@@ -1,0 +1,25 @@
+feature,label,importance,std
+diabetes_claim_share,Share of claims that are diabetes drugs,0.0401,0.0059
+n_distinct_drugs,Number of distinct drugs prescribed,0.0364,0.0103
+uses_metformin,Prescribes metformin,0.0337,0.0049
+log_patients,Number of Medicare patients (log),0.0164,0.0047
+brand_claim_share,Share of claims that are brand-name drugs,0.0148,0.0047
+dialysis_claim_share,Share of claims that are dialysis drugs,0.0091,0.0036
+uses_sulfonylurea,Prescribes sulfonylureas,0.0037,0.0028
+prior_glp1_peer_rate,% of other nephrologists in state on GLP-1s,0.0033,0.0011
+claims_per_patient,Prescriptions per patient,0.0019,0.0074
+avg_patient_age,Patients' average age,0.0017,0.0013
+risk_score,Patients' average risk score (sickness),0.0015,0.002
+uses_sglt2,Already prescribes SGLT2s,0.0012,0.0014
+uses_finerenone,Already prescribes finerenone (Kerendia),0.0009,0.0004
+region_West,Region: West,0.0005,0.0002
+black_share,Share of Black patients,0.0004,0.0013
+region_Northeast,Region: Northeast,0.0003,0.0004
+region_South,Region: South,0.0003,0.0004
+rural,Practices in a rural area,0.0001,0.0001
+is_DO,DO (vs MD) degree,0.0,0.0001
+female_share,Share of female patients,-0.0001,0.0016
+uses_insulin,Prescribes insulin,-0.0006,0.0004
+dual_share,Share of low-income (dual-eligible) patients,-0.0007,0.0011
+uses_dpp4,Prescribes DPP-4 inhibitors,-0.002,0.0052
+mapd_share,Share of claims via Medicare Advantage,-0.0036,0.002

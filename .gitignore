@@ -1,0 +1,19 @@
+# Python environment and caches
+.venv/
+__pycache__/
+*.pyc
+
+# Raw CMS downloads (~150 MB) - recreate with pull_prescriptions.py and pull_providers.py
+data/raw/
+
+# Cached third-party price data - vendor terms restrict redistribution; scripts re-download it
+output/prices.csv
+output/prices_tiingo.csv
+output/ff_factors_daily.csv
+
+# Large intermediate model tables - recreated by model.py
+output/features_*.csv
+
+# Secrets and OS clutter
+.env
+.DS_Store
